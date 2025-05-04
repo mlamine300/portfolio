@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { twMerge } from "tailwind-merge";
 import { usePathname } from "next/navigation";
+import ToggleDarkMode from "./ToggleDarkMode";
 export type navlink = {
   name: string;
   href: string;
@@ -23,7 +24,7 @@ const Nav = ({
 }: NavProps) => {
   const path = usePathname();
   return (
-    <div>
+    <div className="max-sm:hidden flex gap-8">
       <nav className={parentClassName}>
         {links.map((link) => (
           <div
@@ -49,6 +50,7 @@ const Nav = ({
           </div>
         ))}
       </nav>
+      <ToggleDarkMode />
     </div>
   );
 };

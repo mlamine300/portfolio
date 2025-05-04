@@ -7,7 +7,7 @@ const ToggleDarkMode = () => {
   const { theme, setTheme } = useTheme();
   return (
     <Button
-      variant={"outline"}
+      variant={"secondary"}
       className="rounded-2xl w-10 h-10 relative hover:cursor-pointer "
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
