@@ -1,7 +1,7 @@
 "use client";
 import { useTheme } from "next-themes";
 import React from "react";
-import { Button } from "./button";
+import { Button } from "./ui/button";
 import { MoonIcon, SunIcon } from "lucide-react";
 const ToggleDarkMode = () => {
   const { theme, setTheme } = useTheme();

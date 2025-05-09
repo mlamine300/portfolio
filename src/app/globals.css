@@ -42,6 +42,8 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  --color-profile: var(--background);
 }
 
 :root {
@@ -78,6 +80,7 @@
   --sidebar-border: oklch(0.92 0.004 286.32);
   --sidebar-ring: oklch(0.623 0.214 259.815);
   --text_primary: oklch(20% 0.05 260);
+  --profile-image: url("/profile_background.png");
 }
 
 .dark {
@@ -114,6 +117,7 @@
   --sidebar-ring: oklch(0.488 0.243 264.376);
   /* --text_primary: oklch(20% 0.95 260); */
   --text_primary: oklch(92% 0.03 250);
+  --profile-image: url("/profile_background_dark.png");
 }
 
 @layer base {
