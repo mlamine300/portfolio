@@ -45,7 +45,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${roboto.variable} ${inter.variable} antialiased px-auto`}
+        className={`${roboto.variable} ${inter.variable} antialiased w-full `}
       >
         <ThemeProvider
           enableSystem={true}

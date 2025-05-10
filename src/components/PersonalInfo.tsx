@@ -1,44 +1,11 @@
-import React from "react";
-import {
-  HiUser,
-  HiEnvelope,
-  HiAcademicCap,
-  HiPhone,
-  HiCalendar,
-  HiHome,
-} from "react-icons/hi2";
+import React, { ReactNode } from "react";
 
-const PersonalInfo = () => {
-  const info = [
-    { icon: <HiUser />, text: "Laoufi Mohamed Lamine", onClick: () => {} },
-    {
-      icon: <HiEnvelope />,
-      text: "laoufi.lamine.dev@gmail.com",
-      onClick: () => {},
-    },
-    {
-      icon: <HiAcademicCap />,
-      text: "Master's Degree in Computer Science",
-      onClick: () => {},
-    },
+type PersonalInfoProps = {
+  infos: { icon: ReactNode; text: string; onClick: () => void }[];
+  language: string[];
+};
 
-    {
-      icon: <HiPhone />,
-      text: "+213 676 21 77 01",
-      onClick: () => {},
-    },
-    {
-      icon: <HiCalendar />,
-      text: "Born on 01/01/1998",
-      onClick: () => {},
-    },
-    {
-      icon: <HiHome />,
-      text: "Cite bellevue Ain benian, Algeirs Algeria",
-      onClick: () => {},
-    },
-  ];
-
+const PersonalInfo = ({ infos, language }: PersonalInfoProps) => {
   return (
     <section className="flex flex-col gap-4 w-full h-full p-4">
       <h2 className="text-2xl font-bold text-text_primary">
@@ -51,7 +18,7 @@ const PersonalInfo = () => {
         rerum!
       </p>
       <div className="grid grid-cols-2 grid-rows-3 gap-x-20 px-6  grid-flow-col">
-        {info.map((item, index) => (
+        {infos.map((item, index) => (
           <div key={index} className="flex items-center gap-2">
             <span className="text-primary mr-4">{item.icon}</span>
             <p className="text-lg text-text_primary font-semibold">
@@ -63,7 +30,12 @@ const PersonalInfo = () => {
       <h3 className="text-primary text-lg font-light mt-4">Language Skill</h3>
       <div className="bg-primary/30 mx-2 h-[1px] w-full  " />
       <h4 className="text-lg font-light text-text_primary">
-        English, French, Arabic
+        {language.map((lang, index) => (
+          <span key={index} className="text-text_primary">
+            {lang}
+            {index < language.length - 1 ? ", " : ""}
+          </span>
+        ))}
       </h4>
     </section>
   );

@@ -15,8 +15,8 @@ import Badge from "./Badge";
 
 const Hero = () => {
   return (
-    <section className="mt-20 md:mt-5 w-full">
-      <div className="flex gap-4 justify-center">
+    <section className="mt-20 md:mt-5 w-full flex flex-col items-center ">
+      <div className="flex gap-4 justify-center ">
         <div>
           <div className="self-center flex flex-col items-start justify-center max-w-[500px]">
             <p className="text-lg uppercase text-primary tracking-widest">
