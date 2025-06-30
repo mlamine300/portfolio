@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { /*Geist, Geist_Mono,*/ Nunito } from "next/font/google";
+import { /*Geist, Geist_Mono,Nunito*/ Outfit } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -14,11 +14,11 @@ import { ThemeProvider } from "next-themes";
 //   variable: "--font-geist-mono",
 //   subsets: ["latin"],
 // });
-const roboto = Nunito({
+const outfit = Outfit({
   variable: "--font-nunito",
   subsets: ["latin"],
 });
-const inter = Nunito({
+const inter = Outfit({
   variable: "--font-inter",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -45,7 +45,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${roboto.variable} ${inter.variable} antialiased w-full `}
+        className={`${outfit.variable} ${inter.variable} antialiased w-auto`}
       >
         <ThemeProvider
           enableSystem={true}

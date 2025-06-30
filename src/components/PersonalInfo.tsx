@@ -7,21 +7,21 @@ type PersonalInfoProps = {
 
 const PersonalInfo = ({ infos, language }: PersonalInfoProps) => {
   return (
-    <section className="flex flex-col gap-4 w-full h-full p-4">
-      <h2 className="text-2xl font-bold text-text_primary">
+    <section className="flex flex-col items-center gap-4 w-full h-full p-4">
+      <h2 className="text-2xl font-bold text-text_primary text-center">
         Unmatched Service Quality for Over 3 Years
       </h2>
-      <p className="text-muted-foreground">
+      <p className="text-muted-foreground text-center sm:text-start">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum eum nam
         enim nihil est aliquam. Est consectetur magnam inventore aliquid,
         delectus ex nostrum architecto, nihil nulla pariatur, quisquam maiores
         rerum!
       </p>
-      <div className="grid grid-cols-2 grid-rows-3 gap-x-20 px-6  grid-flow-col">
+      <div className="flex flex-col gap-4 items-center max-sm:text-center sm:text-start sm:grid sm:grid-cols-2 sm:grid-rows-3 sm:gap-x-20 px-6  sm:grid-flow-col">
         {infos.map((item, index) => (
-          <div key={index} className="flex items-center gap-2">
-            <span className="text-primary mr-4">{item.icon}</span>
-            <p className="text-lg text-text_primary font-semibold">
+          <div key={index} className="  flex  w-full items-center justify-stretch gap-1 sm:gap-2">
+            <span className="text-primary mr-1 sm:mr-4 my-auto sm:text-lg   text-sm ">{item.icon}</span>
+            <p className="sm:text-lg w-full text-sm text-text_primary font-semibold">
               {item.text}
             </p>
           </div>

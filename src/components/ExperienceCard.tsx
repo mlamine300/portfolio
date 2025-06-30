@@ -17,7 +17,7 @@ const ExperienceCard = ({
   company,
 }: Experience) => {
   return (
-    <div className="flex flex-col m-2">
+    <div className="flex flex-col  m-2 items-center sm:items-start ">
       {/* <div className="flex gap-2 items-center">
         <span className="text-primary">{icon}</span>
         <h3 className="text-lg font-semibold text-primary">{title}</h3>
@@ -31,9 +31,9 @@ const ExperienceCard = ({
           height={10}
         />
         <div className="flex flex-col">
-          <h3 className="text-lg font-bold text-text_primary">{company}</h3>
-          <p className="text-lg text-muted-foreground mb-2">{description}</p>
-          <p className="text-sm text-text_primary">
+          <h3 className="text-sm sm:text-lg font-bold text-text_primary ">{company}</h3>
+          <p className="text-sm sm:text-lg text-muted-foreground mb-2">{description}</p>
+          <p className="text-xs sm:text-sm text-text_primary">
             {dateFrom} - {dateTo}
           </p>
         </div>

@@ -7,7 +7,7 @@ type SkillsProps = {
 
 const Skills = ({ skills, tools }: SkillsProps) => {
   return (
-    <section className="flex flex-col gap-4 w-full h-full p-4">
+    <section className="flex flex-col items-center sm:items-start gap-4 w-full h-full sm:p-4">
       <h1 className="text-4xl font-bold text-text_primary  mt-2">
         Tools I Use Everyday
       </h1>

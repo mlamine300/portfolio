@@ -96,8 +96,8 @@ const About = () => {
     <SiAdobexd key={4} />,
   ];
   return (
-    <section className="flex flex-col self-center w-[700px] mt-26 max-w-[700px]  h-[900px] items-center gap-4 py-8">
-      <div className="flex gap-8 justify-center items-center">
+    <section className="flex flex-col self-center sm:w-[700px] mt-26 sm:max-w-[700px]  sm:h-[900px] items-center gap-4 py-8">
+      <div className="flex gap-8 justify-center items-center ">
         <Image
           alt="ring"
           src={theme === "dark" ? "/ring-dark.svg" : "/ring.svg"}
@@ -106,8 +106,8 @@ const About = () => {
         />
         <h1 className="text-5xl font-bold text-text">About</h1>
       </div>
-      <Tabs defaultValue="info" className="w-full h-full">
-        <TabsList className="flex flex-col sm:flex-row sm:justify-arround w-full bg-white dark:bg-muted  rounded-lg p-1">
+      <Tabs defaultValue="info" className="w-full h-full ">
+        <TabsList className="py-4 sm:py-1 flex flex-col  sm:flex-row sm:justify-arround w-full bg-background lg:bg-white dark:bg-muted  rounded-lg px-1">
           <TabsTrigger order={-1} className="w-72" value="info">
             Personal informations
           </TabsTrigger>
@@ -121,7 +121,7 @@ const About = () => {
         <TabsContent value="info" className="h-full ">
           <PersonalInfo infos={infos} language={language} />
         </TabsContent>
-        <TabsContent value="qualifications" className="h-full">
+        <TabsContent value="qualifications" className="h-full ">
           <Qualifications experiences={Experiences} education={Educations} />
         </TabsContent>
         <TabsContent value="skills" className="h-full">

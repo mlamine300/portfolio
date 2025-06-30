@@ -17,6 +17,7 @@ const Template = ({ children }: { children: ReactNode }) => {
         initial="hidden"
         animate="visible"
         exit="hidden"
+       
         transition={{
           duration: 0.5,
           ease: "easeInOut",
