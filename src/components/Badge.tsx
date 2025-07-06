@@ -54,7 +54,7 @@ const Badge = ({
 };
 
 const getDecimal = (num: number) => {
-  console.log((num * 10) % 10);
+  //console.log((num * 10) % 10);
   if ((num * 10) % 10 < 1) return num.toFixed(0);
   return num.toFixed(1);
 };

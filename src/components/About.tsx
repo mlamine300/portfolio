@@ -96,15 +96,16 @@ const About = () => {
     <SiAdobexd key={4} />,
   ];
   return (
-    <section className="flex flex-col self-center sm:w-[700px] mt-26 sm:max-w-[700px]  sm:h-[900px] items-center gap-4 py-8">
-      <div className="flex gap-8 justify-center items-center ">
+    <section className="flex flex-col self-center sm:w-[700px] mt-26 sm:max-w-[700px]  items-center gap-4 py-8">
+      <div className="flex sm:gap-8 gap-2 justify-center items-center ">
         <Image
           alt="ring"
           src={theme === "dark" ? "/ring-dark.svg" : "/ring.svg"}
           width={40}
           height={40}
+          className='w-[20px] h-[20px] sm:w-[40px] sm:h-[40px]'
         />
-        <h1 className="text-5xl font-bold text-text">About</h1>
+        <h1 className="text-2xl sm:text-5xl font-bold text-text">About</h1>
       </div>
       <Tabs defaultValue="info" className="w-full h-full ">
         <TabsList className="py-4 sm:py-1 flex flex-col  sm:flex-row sm:justify-arround w-full bg-background lg:bg-white dark:bg-muted  rounded-lg px-1">
