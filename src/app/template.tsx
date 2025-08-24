@@ -17,7 +17,6 @@ const Template = ({ children }: { children: ReactNode }) => {
         initial="hidden"
         animate="visible"
         exit="hidden"
-       
         transition={{
           duration: 0.5,
           ease: "easeInOut",
@@ -31,7 +30,7 @@ const Template = ({ children }: { children: ReactNode }) => {
         style={{ transform: `translateY(${scrollYProgress - 100}%)` }}
         className="fixed z-50 bg-primary w-1 top-0 right-0 bottom-0 transition-all duration-300"
       ></span>
-      <div className="h-[4000px]"></div>
+      <div className="h-full"></div>
     </>
   );
 };

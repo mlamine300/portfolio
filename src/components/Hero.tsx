@@ -45,7 +45,10 @@ const Hero = () => {
               <HiOutlineArrowDownTray />{" "}
             </Button>
           </div>
-          <SocialMediaBar className="mt-4" />
+          <SocialMediaBar
+            className="mt-4"
+            iconClassName="text-2xl text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200 transition-colors duration-300"
+          />
         </div>
         <div className="hidden sm:flex relative ml-8 ">
           <ProfileImage />

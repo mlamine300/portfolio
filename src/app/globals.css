@@ -1,6 +1,14 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@layer utilities {
+  .bg-work_project_image {
+    background-image: url("/work/project-bg-light.png");
+  }
+  .bg-work_project_image-dark {
+    background-image: url("/work/project-bg-dark.png");
+  }
+}
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -84,7 +92,65 @@
 }
 
 .dark {
-  --background: rgb(34, 40, 49);
+  --radius: 0.3rem;
+
+  /* Primary Surfaces */
+  --background: oklch(10% 0.02 260); /* Rich charcoal black */
+  --foreground: oklch(95% 0.01 260); /* Soft, legible off-white */
+
+  --card: oklch(15% 0.02 260); /* Slightly lighter card BG */
+  --card-foreground: var(--foreground);
+
+  --popover: var(--card);
+  --popover-foreground: var(--foreground);
+
+  /* Accent & Brand Colors */
+  --primary: oklch(75% 0.78 270); /* Bold indigo-blue pop */
+  --primary-foreground: oklch(98% 0.01 260); /* Near-white text */
+
+  --secondary: oklch(30% 0.03 280); /* Cool subtle violet */
+  --secondary-foreground: oklch(90% 0.02 280);
+
+  --muted: oklch(25% 0.02 270); /* Toned-down neutral */
+  --muted-foreground: oklch(60% 0.03 270);
+
+  --accent: oklch(35% 0.03 280); /* Calm accent tone */
+  --accent-foreground: oklch(95% 0.01 280);
+
+  --destructive: oklch(60% 0.25 30); /* Vibrant red for alerts */
+
+  --border: oklch(25% 0.015 270);
+  --input: var(--border);
+  --ring: var(--primary);
+
+  /* Charts & Highlights */
+  --chart-1: oklch(75% 0.25 45);
+  --chart-2: oklch(65% 0.15 185);
+  --chart-3: oklch(55% 0.1 230);
+  --chart-4: oklch(78% 0.2 85);
+  --chart-5: oklch(70% 0.2 70);
+
+  /* Sidebar Navigation */
+  --sidebar: oklch(12% 0.015 260);
+  --sidebar-foreground: var(--foreground);
+
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+
+  --sidebar-accent: var(--secondary);
+  --sidebar-accent-foreground: var(--secondary-foreground);
+
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+
+  /* Text & Imagery */
+  --text_primary: var(--foreground);
+  --profile-image: url("/profile_background.png");
+}
+
+/*
+.dark {
+  --background: rgb(28, 32, 36);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.21 0.006 285.885);
   --card-foreground: oklch(0.985 0 0);
@@ -115,11 +181,11 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.488 0.243 264.376);
-  /* --text_primary: oklch(20% 0.95 260); */
+  
   --text_primary: oklch(92% 0.03 250);
   --profile-image: url("/profile_background_dark.png");
 }
-
+*/
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -127,4 +193,9 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+.swiper-horizontal > .section-pagination-bullets .swiper-pagination-bullets,
+.swiper-pagination-horizontal.swiper-pagination-bullets
+  .swiper-pagination-bullet {
+  @apply bg-primary;
 }
