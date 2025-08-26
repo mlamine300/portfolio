@@ -11,17 +11,17 @@ function Services() {
     {
       icon: <Palette className="w-18 h-18 " />,
       title: "Web Design",
-      text: "lorem",
+      text: "I create clean, modern, and visually appealing designs that ensure great user experiences and align with your brand identity.",
     },
     {
       icon: <ChevronsLeftRightEllipsis className="w-18 h-18  " />,
       title: "Web Development",
-      text: "lorem",
+      text: "I build fast, responsive, and scalable websites using the latest technologies, ensuring seamless performance across all devices.",
     },
     {
       icon: <AppWindow className="w-18 h-18 " />,
       title: "App Development",
-      text: "lorem",
+      text: "I develop powerful mobile and desktop applications tailored to your needs, focusing on usability, speed, and reliability.",
     },
   ];
 
@@ -54,12 +54,7 @@ function Services() {
               <CardTitle className="text-2xl dark:text-white font-bold text-black mt-8">
                 {service.title}
               </CardTitle>
-              <CardContent className="font-light">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
-                recusandae explicabo sunt minus ab, laboriosam consequuntur,
-                illo magni veniam eveniet sequi deleniti incidunt voluptate quo
-                voluptatum fuga sed, accusamus quod.
-              </CardContent>
+              <CardContent className="font-light">{service.text}</CardContent>
             </Card>
           ))}
         </div>

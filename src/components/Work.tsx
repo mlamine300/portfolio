@@ -31,8 +31,9 @@ function Work() {
           </h1>
         </div>
         <p className="text-center text-text-secondary sm:text-lg text-sm mt-4 max-w-2xl">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
-          quisquam explicabo beatae veniam velit accusantium
+          Here are some of my recent projects that showcase my skills in web and
+          app development, ranging from interactive websites to fully-featured
+          applications.
         </p>
         <Link className="xl:mt-4 mt-2" href="/projects">
           <Button>All Projects</Button>

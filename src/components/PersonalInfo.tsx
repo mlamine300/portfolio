@@ -12,15 +12,19 @@ const PersonalInfo = ({ infos, language }: PersonalInfoProps) => {
         Unmatched Service Quality for Over 3 Years
       </h2>
       <p className="text-muted-foreground text-center sm:text-start">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum eum nam
-        enim nihil est aliquam. Est consectetur magnam inventore aliquid,
-        delectus ex nostrum architecto, nihil nulla pariatur, quisquam maiores
-        rerum!
+        I am passionate about building modern, user-friendly web applications.
+        With over 3 years of experience, I specialize in designing efficient
+        solutions that combine creativity, functionality, and performance.
       </p>
       <div className="flex flex-col gap-4 items-center max-sm:text-center sm:text-start sm:grid sm:grid-cols-2 sm:grid-rows-3 sm:gap-x-20 px-6  sm:grid-flow-col">
         {infos.map((item, index) => (
-          <div key={index} className="  flex  w-full items-center justify-stretch gap-1 sm:gap-2">
-            <span className="text-primary mr-1 sm:mr-4 my-auto sm:text-lg   text-sm ">{item.icon}</span>
+          <div
+            key={index}
+            className="  flex  w-full items-center justify-stretch gap-1 sm:gap-2"
+          >
+            <span className="text-primary mr-1 sm:mr-4 my-auto sm:text-lg   text-sm ">
+              {item.icon}
+            </span>
             <p className="sm:text-lg w-full text-sm text-text_primary font-semibold">
               {item.text}
             </p>
