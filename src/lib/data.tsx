@@ -81,3 +81,43 @@ export const projects = [
     GitHub: "/",
   },
 ];
+
+export const reviews = [
+  {
+    name: "John Doe",
+    title: "CEO, Company A",
+    image: "/reviews/avatar-1.png",
+    review: "This is a fantastic service! Highly recommended.",
+  },
+  {
+    name: "Jane Smith",
+    title: "CTO, Company B",
+    image: "/reviews/avatar-2.png",
+    review: "Professional and efficient. Will use again.",
+  },
+  {
+    name: "Alice Johnson",
+    title: "Manager, Company C",
+    image: "/reviews/avatar-3.png",
+    review: "Exceeded our expectations in every way.",
+  },
+  {
+    name: "Bob Brown",
+    title: "Developer, Company D",
+    image: "/reviews/avatar-4.png",
+    review:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  },
+  {
+    name: "Charlie Davis",
+    title: "Designer, Company E",
+    image: "/reviews/avatar-5.png",
+    review: "Creative solutions and great attention to detail.",
+  },
+  {
+    name: "Eve Wilson",
+    title: "Entrepreneur, Startup F",
+    image: "/reviews/avatar-6.png",
+    review: "Innovative approach that delivered real results.",
+  },
+];

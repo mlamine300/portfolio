@@ -15,7 +15,7 @@ type Project = {
 
 const ProjectCard = ({ project }: { project: Project }) => {
   return (
-    <Card className="h-fit group overflow-hidden ">
+    <Card className="h-fit group overflow-hidden relative max-md:max-h-[400px]">
       <div className="absolute opacity-0 z-10 w-full h-20 top-[30%] left-1  flex justify-center items-center gap-2 group-hover:opacity-100 transition-opacity duration-500 ">
         <Link href={project.GitHub}>
           {" "}
@@ -28,25 +28,27 @@ const ProjectCard = ({ project }: { project: Project }) => {
       </div>
       <CardHeader>
         <div
-          className=" relative w-full h-[300px] flex justify-center items-center 
+          className=" relative w-full h-[200px] xl:h-[300px] flex justify-center items-center 
         bg-tertiary dark:bg-secondary/10 xl:bg-work_project_image xl:dark:bg-work_project_image-dark  xl:bg-[110%] overflow-hidden xl:bg-no-repeat"
         >
           <Image
             src={project.image}
             alt=""
-            width={247}
-            height={250}
+            width={300}
+            height={350}
             className="absolute bottom-0 shadow-2xl"
             priority
           />
         </div>
       </CardHeader>
       <div className="p-6 w-full">
-        <Badge className="uppercase text-sm font-medium top-4 left-4 px-2 absolute">
+        <Badge className="uppercase text-sm xl:text-lg font-medium top-4 left-4 px-2 absolute">
           {project.category}{" "}
         </Badge>
         <h4>{project.name} </h4>
-        <p className="text-muted-foreground text-lg">{project.description} </p>
+        <p className="text-muted-foreground xl:text-lg text-sm">
+          {project.description}{" "}
+        </p>
       </div>
     </Card>
   );

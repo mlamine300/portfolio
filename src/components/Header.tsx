@@ -16,18 +16,18 @@ const Header = () => {
     },
 
     {
-      name: "Contact",
-      href: "/contact",
-    },
-    {
       name: "Projects",
       href: "/projects",
+    },
+    {
+      name: "Contact",
+      href: "/contact",
     },
   ];
   const scrollYProgress = useScrollProgress(); // Custom hook to get scroll progress
   return (
     <header
-      className={`z-50 ${
+      className={`z-50 w-full max-md:max-w-screen ${
         scrollYProgress ? "h-14 shadow-lg shadow-stone-700 " : "h-16"
       } bg-background fixed top-0 right-0 left-0 bg-gray-1  px-4`}
     >

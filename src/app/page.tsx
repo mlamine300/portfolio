@@ -7,7 +7,7 @@ import Work from "@/components/Work";
 
 export default function Home() {
   return (
-    <main className="flex  mb-16 flex-col items-center justify-between p-10 md:p-24">
+    <main className="w-full max-md:max-w-screen flex  mb-16 flex-col items-center justify-between p-10 md:p-24">
       <Hero />
       <About />
       <Services />

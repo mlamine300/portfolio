@@ -45,7 +45,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${outfit.variable} ${inter.variable} antialiased w-auto`}
+        className={`${outfit.variable} ${inter.variable} min-w-screen max-md:max-w-dvw  w-full antialiased`}
       >
         <ThemeProvider
           enableSystem={true}
@@ -53,6 +53,7 @@ export default function RootLayout({
           defaultTheme="system"
         >
           <Header />
+
           {children}
           <Footer />
         </ThemeProvider>

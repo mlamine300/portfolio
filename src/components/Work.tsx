@@ -17,7 +17,7 @@ function Work() {
 
   return (
     <section className="container mx-auto flex flex-col md:flex-row gap-8  items-center mt-4 sm:mt-2 mb-10">
-      <div className="flex flex-col items-center justify-center text-center sm:mb-10 mb-5  md:min-w-[300px] w-full">
+      <div className="flex flex-col items-center justify-center text-center xl:mb-10 mb-2  md:min-w-[300px] w-full">
         <div className="flex sm:gap-8 gap-2 justify-center items-center  ">
           <Image
             alt="ring"
@@ -34,13 +34,13 @@ function Work() {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
           quisquam explicabo beatae veniam velit accusantium
         </p>
-        <Link className="mt-4" href="/projects">
-          <Button>All Projects*</Button>
+        <Link className="xl:mt-4 mt-2" href="/projects">
+          <Button>All Projects</Button>
         </Link>
       </div>
-      <div className=" max-w-[900px] ">
+      <div className=" w-full max-md:max-w-screen max-w-[900px] ">
         <Swiper
-          className="max-md:max-w-[600px] max-sm:max-w-[400px] xl:max-w-[1000px] xl:absolute right-0 top-0 mt-10"
+          className="max-md:max-w-[600px] max-sm:max-w-[400px] xl:max-w-[1000px] xl:absolute right-0 top-0 xl:mt-10"
           spaceBetween={30}
           modules={[Pagination]}
           pagination={{ clickable: true }}

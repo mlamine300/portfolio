@@ -9,7 +9,7 @@ const Page = () => {
     "all projects",
     ...new Set(projects.map((project) => project.category)),
   ];
-  const [category, setCategory] = useState(FilteredCategories.at(2));
+  const [category, setCategory] = useState(FilteredCategories.at(0));
   const filteredProjects =
     category === "all projects"
       ? projects.filter(() => true)
