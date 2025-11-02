@@ -10,14 +10,14 @@ type Project = {
   name: string;
   description: string;
   link: string;
-  GitHub: string;
+  github: string;
 };
 
 const ProjectCard = ({ project }: { project: Project }) => {
   return (
     <Card className="h-fit group overflow-hidden relative max-md:max-h-[400px]">
       <div className="absolute opacity-0 z-10 w-full h-20 top-[30%] left-1  flex justify-center items-center gap-2 group-hover:opacity-100 transition-opacity duration-500 ">
-        <Link href={project.GitHub}>
+        <Link href={project.github}>
           {" "}
           <GithubIcon className="dark:bg-primary/80 dark:text-secondary dark:hover:text-white  bg-black/90  px-4 rounded-full text-white w-16 h-16 hover:text-primary" />
         </Link>

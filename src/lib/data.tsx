@@ -6,7 +6,7 @@ export const projects = [
     description:
       "A modern portfolio website built with Next.js and Tailwind CSS, featuring responsive design and smooth animations.",
     link: "/",
-    GitHub: "https://github.com/mlamine300/bibliotheque-app",
+    github: "https://github.com/mlamine300/bibliotheque-app",
   },
   {
     image: "/work/2.png",
@@ -15,7 +15,7 @@ export const projects = [
     description:
       "A modern portfolio website built with Next.js and Tailwind CSS, featuring responsive design and smooth animations.",
     link: "/",
-    GitHub: "/",
+    github: "/",
   },
   {
     image: "/work/3.png",
@@ -24,7 +24,7 @@ export const projects = [
     description:
       "A modern portfolio website built with Next.js and Tailwind CSS, featuring responsive design and smooth animations.",
     link: "/",
-    GitHub: "/",
+    github: "/",
   },
   {
     image: "/work/4.png",
@@ -33,7 +33,7 @@ export const projects = [
     description:
       "A modern portfolio website built with Next.js and Tailwind CSS, featuring responsive design and smooth animations.",
     link: "/",
-    GitHub: "/",
+    github: "/",
   },
   {
     image: "/work/3.png",
@@ -42,7 +42,7 @@ export const projects = [
     description:
       "A modern portfolio website built with Next.js and Tailwind CSS, featuring responsive design and smooth animations.",
     link: "/",
-    GitHub: "/",
+    github: "/",
   },
   {
     image: "/work/2.png",
@@ -51,7 +51,7 @@ export const projects = [
     description:
       "A modern portfolio website built with Next.js and Tailwind CSS, featuring responsive design and smooth animations.",
     link: "/",
-    GitHub: "/",
+    github: "/",
   },
   {
     image: "/work/1.png",
@@ -60,7 +60,7 @@ export const projects = [
     description:
       "A modern portfolio website built with Next.js and Tailwind CSS, featuring responsive design and smooth animations.",
     link: "/",
-    GitHub: "/",
+    github: "/",
   },
   {
     image: "/work/1.png",
@@ -69,7 +69,7 @@ export const projects = [
     description:
       "A modern portfolio website built with Next.js and Tailwind CSS, featuring responsive design and smooth animations.",
     link: "/",
-    GitHub: "https://github.com/mlamine300/bibliotheque-app",
+    github: "https://github.com/mlamine300/bibliotheque-app",
   },
   {
     image: "/work/2.png",
@@ -78,7 +78,7 @@ export const projects = [
     description:
       "A modern portfolio website built with Next.js and Tailwind CSS, featuring responsive design and smooth animations.",
     link: "/",
-    GitHub: "/",
+    github: "/",
   },
 ];
 

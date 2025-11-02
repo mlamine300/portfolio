@@ -1,9 +1,7 @@
 import React from "react";
-import { Button } from "./ui/button";
 
 import {
   HiOutlinePaperAirplane,
-  HiOutlineArrowDownTray,
   HiOutlineClipboardDocumentList,
   HiUserGroup,
   HiOutlineBriefcase,
@@ -12,6 +10,8 @@ import {
 import ProfileImage from "./ProfileImage";
 import SocialMediaBar from "./SocialMediaBar";
 import Badge from "./Badge";
+import DownloadCv from "./DownloadCv";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -31,19 +31,14 @@ const Hero = () => {
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 mt-4 ">
-            <Button className="sm:gap-4 rounded-xl  max-sm:mx-auto w-36">
+            <Link
+              href={"http://localhost:3000/contact"}
+              className="sm:gap-4 rounded-xl  max-sm:mx-auto w-36 font-bold flex items-center bg-primary px-4 text-background text-xl hover:bg-primary/60"
+            >
               <span className="text-[10px] sm:flex sm:text-sm">Contact me</span>{" "}
               <HiOutlinePaperAirplane />{" "}
-            </Button>
-            <Button
-              variant={"outline"}
-              className="sm:gap-4  rounded-xl
-             active:text-primary max-sm:mx-auto w-36 active:border-primary "
-            >
-              {" "}
-              <span className="text-[10px]  sm:text-sm">Download CV</span>{" "}
-              <HiOutlineArrowDownTray />{" "}
-            </Button>
+            </Link>
+            <DownloadCv />
           </div>
           <SocialMediaBar
             className="mt-4"
