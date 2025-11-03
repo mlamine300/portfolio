@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
+import Cookies from "js-cookie";
 import Image from "next/image";
 import React, { useState } from "react";
 import logo from "../../../../public/Logo.png";
@@ -20,6 +21,7 @@ import axiosInstance from "@/lib/axiosInstance";
 import { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
 import { tokenService } from "@/lib/tokenServices";
+
 const SignInPage = () => {
   const [authError, setAuthError] = useState("");
   const { replace } = useRouter();
@@ -44,8 +46,9 @@ const SignInPage = () => {
       //const res = await axiosInstance.get("/user");
 
       const res = await axiosInstance.post("/auth/login", { email, password });
-      console.log(res);
-      tokenService.setToken(res.data.token);
+
+      Cookies.set("token", res.data.user.token);
+      tokenService.setToken(res.data.user.token);
       replace("/admin");
     } catch (error) {
       const axioserror = error as AxiosError;

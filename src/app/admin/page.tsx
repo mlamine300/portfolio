@@ -1,16 +1,15 @@
-import { tokenService } from "@/lib/tokenServices";
-import React from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
-const page = () => {
-  const token = tokenService.getToken();
-  console.log(token);
+import UserInformationForm from "@/components/admin/UserInformationForm";
+
+const Page = () => {
+  // const UserData = ;
+
   return (
-    <div className="flex w-full h-full min-h-screen ">
-      <h3 className="text-4xl text-red-500 bg-primary/20 ">
-        dsssssssssssssssssssdfdfffffffffffffffffdsgsgfg
-      </h3>
+    <div className="layout  mx-auto flex  flex-col w-full h-full min-h-screen ">
+      <UserInformationForm />
     </div>
   );
 };
 
-export default page;
+export default Page;

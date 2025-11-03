@@ -199,3 +199,7 @@
   .swiper-pagination-bullet {
   @apply bg-primary;
 }
+
+.layout {
+  @apply xl:max-w-4xl lg:max-w-2xl md:max-w-xl max-w-lg min-2xl:max-w-6xl;
+}

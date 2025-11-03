@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import Cookies from "js-cookie";
 import axios, { AxiosError } from "axios";
-import { tokenService } from "./tokenServices";
 
 let isRefreshing = false;
 let failedQueue: any[] = [];
@@ -23,8 +23,10 @@ const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
   (config) => {
-    const accessToken = tokenService.getToken();
-    if (accessToken) {
+    const accessToken = Cookies.get("token");
+    // if (!accessToken) tokenService.getToken();
+    console.log(accessToken);
+    if (accessToken && accessToken != undefined) {
       config.headers.Authorization = `Bearer ${accessToken}`;
     }
     return config;
@@ -40,8 +42,8 @@ axiosInstance.interceptors.response.use(
   (err: AxiosError) => {
     if (err.response) {
       // if ((err.response.data as any)?.message === "Access token expired")
-      if (err.status === 461) {
-        console.log("---------------------");
+      if (err.status === 401) {
+        console.log("401--------------------");
         refreshToken(err);
       } else if (err.status === 462) {
         window.location.href = "/admin/login";
@@ -60,7 +62,7 @@ export default axiosInstance;
 const refreshToken = async (err: any) => {
   const originalReq = err.config;
   console.log("refreshing");
-  if (err.response && err.response.status === 461 && !originalReq._retry) {
+  if (err.response && err.response.status === 401 && !originalReq._retry) {
     if (isRefreshing) {
       return new Promise(function (resolve, reject) {
         failedQueue.push({ resolve, reject });
@@ -80,12 +82,13 @@ const refreshToken = async (err: any) => {
           withCredentials: true,
         }
       );
-      const newToken = res.data.accessToken;
+
+      const newToken = res.data.token;
       axiosInstance.defaults.headers.common["Authorization"] =
         "Bearer " + newToken;
       processQueue(null, newToken);
-      tokenService.setToken(newToken);
-      // localStorage.setItem("token", newToken);
+      console.log("new token", newToken);
+      Cookies.set("token", newToken);
       // console.log("refresh end");
       return axiosInstance(originalReq);
     } catch (e) {

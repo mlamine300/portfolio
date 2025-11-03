@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { tokenService } from "@/lib/tokenServices";
+
 import { NextRequest, NextResponse } from "next/server";
 
 // Define protected routes
@@ -17,8 +17,9 @@ export function middleware(req: NextRequest) {
   }
   console.log("protected ", pathname);
   // Read token from cookies or localStorage (for dev use)
-  //   const token = req.cookies.get("token")?.value;
-  const token = tokenService.getToken();
+  const token = req.cookies.get("refreshToken")?.value;
+
+  console.log(token, "--***--");
   if (!token) {
     // Redirect if no token
     const loginUrl = new URL("/admin/signin", req.url);
