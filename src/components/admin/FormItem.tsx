@@ -10,7 +10,7 @@ import {
 import { Textarea } from "../ui/textarea";
 import { Input } from "../ui/input";
 import { cn } from "@/lib/utils";
-import { DateOfBirthPicker } from "../DateOfBirthPicker";
+import { DatePicker } from "../DateOfBirthPicker";
 
 const FormItem = ({
   control,
@@ -21,6 +21,7 @@ const FormItem = ({
   className,
   labelClassName,
   inputClassName,
+  type,
 }: {
   control: any;
   name: string;
@@ -30,13 +31,21 @@ const FormItem = ({
   labelClassName?: string;
   inputClassName?: string;
   className?: string;
+  type?: "text" | "area" | "date";
 }) => {
   return (
     <FormField
       control={control}
       name={name}
       render={({ field }) => (
-        <FI className={cn("w-full", className)}>
+        <FI
+          className={cn(
+            "w-full",
+            className,
+            name === "dateOfBirth" &&
+              "flex flex-row md:flex-col justify-between"
+          )}
+        >
           {
             <FormLabel className={cn("capitalize", labelClassName)}>
               {label || name}
@@ -44,7 +53,7 @@ const FormItem = ({
           }
           <FormControl>
             <div className="relative flex">
-              {name === "summary" ? (
+              {type === "area" ? (
                 <Textarea
                   value={value || field.value}
                   onChange={onChange || field.onChange}
@@ -52,12 +61,12 @@ const FormItem = ({
                   disabled={field.disabled}
                   ref={field.ref}
                   className={cn(
-                    "rounded-xl bg-accent w-full px-4 py-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-primary ",
+                    " rounded-xl bg-accent w-full px-4 py-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-primary ",
                     inputClassName
                   )}
                 />
-              ) : name === "dateOfBirth" ? (
-                <DateOfBirthPicker
+              ) : type === "date" ? (
+                <DatePicker
                   date={value || field.value}
                   setDate={(date) => field.onChange(date)}
                   disabled={field.disabled}
@@ -71,7 +80,7 @@ const FormItem = ({
                   ref={field.ref}
                   type={"text"}
                   className={cn(
-                    "rounded-xl bg-accent w-full px-4 py-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-primary ",
+                    "text-sm md:text-lg rounded-xl bg-accent w-full px-4 py-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-primary ",
                     inputClassName
                   )}
                 />

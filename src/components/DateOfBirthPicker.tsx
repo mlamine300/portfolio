@@ -11,27 +11,37 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { cn } from "@/lib/utils";
 
-export function DateOfBirthPicker({
+export function DatePicker({
+  id,
   date,
   setDate,
   disabled,
+  buttonClassName,
+  className,
 }: {
+  id?: string;
   date: Date;
   setDate: (date: Date | undefined) => void;
-  disabled: boolean | undefined;
+  disabled?: boolean;
+  buttonClassName?: string;
+  className?: string;
 }) {
   const [open, setOpen] = React.useState(false);
   // const [date, setDate] = React.useState<Date | undefined>(undefined);
 
   return (
-    <div className="flex flex-col gap-3">
+    <div id={id} className={cn(className, "flex flex-col gap-3")}>
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <Button
             variant="outline"
             id="date"
-            className="w-48 justify-between font-normal bg-accent"
+            className={cn(
+              buttonClassName,
+              "w-64 md:w-48 justify-between font-normal bg-accent"
+            )}
           >
             {date ? formatDate(date, "yyyy-MM-dd") : "Select date"}
             <ChevronDownIcon />
