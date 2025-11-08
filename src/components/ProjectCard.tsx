@@ -4,14 +4,7 @@ import { Badge } from "./ui/badge";
 import Image from "next/image";
 import { GithubIcon, Link2Icon } from "lucide-react";
 import Link from "next/link";
-type Project = {
-  image: string;
-  category: string;
-  name: string;
-  description: string;
-  link: string;
-  github: string;
-};
+import { Project } from "@/types";
 
 const ProjectCard = ({ project }: { project: Project }) => {
   return (

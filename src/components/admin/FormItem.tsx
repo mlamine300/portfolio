@@ -40,7 +40,7 @@ const FormItem = ({
       render={({ field }) => (
         <FI
           className={cn(
-            "w-full",
+            "w-full relative",
             className,
             name === "dateOfBirth" &&
               "flex flex-row md:flex-col justify-between"
@@ -52,7 +52,7 @@ const FormItem = ({
             </FormLabel>
           }
           <FormControl>
-            <div className="relative flex">
+            <div className="w-full">
               {type === "area" ? (
                 <Textarea
                   value={value || field.value}
@@ -60,10 +60,12 @@ const FormItem = ({
                   onBlur={field.onBlur}
                   disabled={field.disabled}
                   ref={field.ref}
+                  rows={4}
                   className={cn(
-                    " rounded-xl bg-accent w-full px-4 py-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-primary ",
+                    "rounded-xl bg-accent border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary min-h-[100px] resize-y hover:resize-y transition-all duration-200",
                     inputClassName
                   )}
+                  style={{ resize: "vertical" }}
                 />
               ) : type === "date" ? (
                 <DatePicker

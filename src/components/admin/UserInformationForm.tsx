@@ -16,6 +16,8 @@ import { Input } from "../ui/input";
 import { DatePicker } from "../DateOfBirthPicker";
 import { Button } from "../ui/button";
 import { deepEqual } from "@/lib/utils";
+import Link from "next/link";
+import { BsChevronDoubleLeft, BsChevronDoubleRight } from "react-icons/bs";
 
 export const ExperienceSchema = z.object({
   company: z.string().min(4, "Company name is required"),
@@ -280,6 +282,17 @@ const UserInformationForm = () => {
         >
           Update
         </Button>
+        <div className="my-2 w-full flex justify-between px-8 text-primary font-semibold italic underline">
+          <Link className="flex items-center gap-2" href={"/admin/review"}>
+            {" "}
+            <BsChevronDoubleLeft className="font-semibold" />
+            Manage reviews{" "}
+          </Link>
+          <Link className="flex items-center gap-2" href={"/admin/project"}>
+            Manage Projects
+            <BsChevronDoubleRight className="font-semibold" />
+          </Link>
+        </div>
       </form>
     </Form>
   );

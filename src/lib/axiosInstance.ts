@@ -46,7 +46,7 @@ axiosInstance.interceptors.response.use(
         console.log("401--------------------");
         refreshToken(err);
       } else if (err.status === 462) {
-        window.location.href = "/admin/login";
+        window.location.href = "/admin/signin";
       } else if (err.response.status === 500) {
         console.error("Server error. Please try again later.");
       }
