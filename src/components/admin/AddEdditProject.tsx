@@ -14,6 +14,7 @@ import { cn } from "@/lib/utils";
 
 import axiosInstance from "@/lib/axiosInstance";
 import { useRouter } from "next/navigation";
+import DeleteButton from "../DeleteButton";
 
 const initData: Project = {
   name: "",
@@ -187,13 +188,18 @@ const AddEdditProject = ({ project }: { project?: Project | null }) => {
         </div>
         <Button type="submit">{project ? "Edit" : "Add"}</Button>
         {project && (
-          <Button
+          <DeleteButton
+            text=" This action cannot be undone. This will permanently delete this
+            project"
             onClick={() => deleteProject()}
-            variant={"destructive"}
-            type="button"
-          >
-            Delete Project
-          </Button>
+          />
+          //   <Button
+          //     onClick={() => deleteProject()}
+          //     variant={"destructive"}
+          //     type="button"
+          //   >
+          //     Delete Project
+          //   </Button>
         )}
       </form>
     </Form>

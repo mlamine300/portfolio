@@ -24,7 +24,6 @@ const AddEditProject = ({ params }: { params: { id: string } }) => {
   return (
     <main className="flex min-h-screen flex-col items-center justify-start p-16 relative">
       {fetching ? <Loading /> : <AddEdditProject project={project} />}
-      <h3>{project?.name} </h3>
     </main>
   );
 };
