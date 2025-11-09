@@ -186,21 +186,16 @@ const AddEdditProject = ({ project }: { project?: Project | null }) => {
             ))}
           </div>
         </div>
-        <Button type="submit">{project ? "Edit" : "Add"}</Button>
-        {project && (
-          <DeleteButton
-            text=" This action cannot be undone. This will permanently delete this
+        <div className="flex flex-col gap-2 md:flex-row-reverse md:gap-4">
+          <Button type="submit">{project ? "Edit" : "Add"}</Button>
+          {project && (
+            <DeleteButton
+              text=" This action cannot be undone. This will permanently delete this
             project"
-            onClick={() => deleteProject()}
-          />
-          //   <Button
-          //     onClick={() => deleteProject()}
-          //     variant={"destructive"}
-          //     type="button"
-          //   >
-          //     Delete Project
-          //   </Button>
-        )}
+              onClick={() => deleteProject()}
+            />
+          )}
+        </div>
       </form>
     </Form>
   );

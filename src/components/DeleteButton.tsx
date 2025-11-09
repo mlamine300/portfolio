@@ -30,7 +30,12 @@ const DeleteButton = ({
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction onClick={onClick}>Continue</AlertDialogAction>
+          <AlertDialogAction
+            className="bg-red-500 text-white hover:bg-red-300 cursor-pointer"
+            onClick={onClick}
+          >
+            Continue
+          </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

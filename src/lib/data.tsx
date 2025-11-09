@@ -1,3 +1,5 @@
+import { Review } from "@/types";
+
 export const projects = [
   {
     image: "/work/1.png",
@@ -82,7 +84,7 @@ export const projects = [
   },
 ];
 
-export const reviews = [
+export const reviews: Review[] = [
   {
     name: "John Doe",
     title: "CEO, Company A",

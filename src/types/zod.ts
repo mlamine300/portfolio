@@ -37,3 +37,25 @@ export const ProjectSchema = z.object({
     ),
   tools: z.array(ProjectToolSchema).optional(),
 });
+
+export const ReviewShema = z.object({
+  _id: z.string().optional(),
+  name: z
+    .string()
+    .min(3, "name should have more then 3 charactere")
+    .max(35, "name to long"),
+  title: z
+    .string()
+    .min(3, "title should have more then 3 charactere")
+    .max(35, "title to long"),
+  image: z
+    .string()
+    .url({ message: "Invalid URL" })
+    .or(z.literal(""))
+    .optional(),
+  review: z.string().min(10, "please provide a longer text"),
+  company: z
+    .string()
+    .min(3, "company name should have more then 3 charactere")
+    .max(35, "company name to long"),
+});

@@ -112,65 +112,13 @@ function _deepEqual(
   return false;
 }
 
-// export function compare(a: any, b: any): boolean {
-//   console.log("comparinng..");
-//   console.log(a);
-//   console.log(b);
-//   console.log("--------------");
-//   if (Array.isArray(a)) {
-//     if (!Array.isArray(b)) return false;
-//     if (a.length !== b.length) return false;
-//     let isItincludes = true;
-//     a.forEach((x) => {
-//       if (!includes(b, x)) {
-//         isItincludes = false;
-//         return;
-//       }
-//     });
-//     if (!isItincludes) return false;
-//     isItincludes = true;
-//     b.forEach((x) => {
-//       if (!includes(a, x)) {
-//         isItincludes = false;
-//         return;
-//       }
-//     });
-//     if (!isItincludes) return false;
-//     return true;
-//   }
-//   if (!(a instanceof Object)) {
-//     if (a !== b) console.log("a====b", a, b);
-//     return Boolean(a === b);
-//   } else if (a instanceof Object) {
-//     console.log("comparing objects");
-//     const objA = a as Record<string, any>;
-//     const objB = b as Record<string, any>;
-//     const keysA = Object.keys(objA);
-//     const keysB = Object.keys(objB);
-//     console.log("59", keysA.length, "vs", keysB.length);
-//     if (keysA.length !== keysB.length) return false;
-//     console.log("61", !compare(keysA, keysB), "\n", keysA, keysB);
-//     if (!compare(keysA, keysB)) return false;
-//     keysA.forEach((x: string) => {
-//       const result = compare(objA[x], objB[x]);
-//       console.log(objA[x], " vs ", objB[x], "=====>", result);
-//       if (!result) return false;
-//     });
-//   }
-//   console.log("ending");
-//   return true;
-// }
+export const getRandomDarkColor = (): string => {
+  // Generate random RGB values in a dark range
+  const r = Math.floor(Math.random() * 128); // 0–127
+  const g = Math.floor(Math.random() * 128);
+  const b = Math.floor(Math.random() * 128);
 
-// function includes(arr: any[], obj: any) {
-//   let b = false;
-//   if (obj instanceof Object) {
-//     arr.forEach((r) => {
-//       if (compare(r, obj)) {
-//         b = true;
-//         return true;
-//       }
-//     });
-//     return b;
-//   }
-//   return arr.includes(obj);
-// }
+  // Convert to hex
+  const toHex = (n: number) => n.toString(16).padStart(2, "0");
+  return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+};

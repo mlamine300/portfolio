@@ -10,6 +10,7 @@
 // };
 
 import { z } from "zod";
-import { ProjectSchema } from "./zod";
+import { ProjectSchema, ReviewShema } from "./zod";
 
 export type Project = z.infer<typeof ProjectSchema>;
+export type Review = z.infer<typeof ReviewShema>;

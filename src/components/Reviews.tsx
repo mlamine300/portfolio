@@ -5,6 +5,7 @@ import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Card, CardDescription, CardHeader } from "./ui/card";
 import { reviews } from "@/lib/data";
+import { getRandomDarkColor } from "@/lib/utils";
 
 const Reviews = () => {
   const { theme } = useTheme();
@@ -46,13 +47,22 @@ const Reviews = () => {
               <Card className="rounded-4xl h-[350px]">
                 <CardHeader>
                   <div className="flex items-center md:flex-row flex-col gap-6  p-3">
-                    <Image
-                      src={r.image}
-                      alt={r.name}
-                      width={100}
-                      height={100}
-                      className="w-16 h-16 md:w-24 md:h-24 rounded-full mt-1 "
-                    />
+                    {r.image ? (
+                      <Image
+                        src={r.image}
+                        alt={r.name}
+                        width={100}
+                        height={100}
+                        className="w-16 h-16 md:w-24 md:h-24 rounded-full mt-1 "
+                      />
+                    ) : (
+                      <h3
+                        style={{ backgroundColor: getRandomDarkColor() }}
+                        className="w-16 h-16 md:w-24 md:h-24 rounded-full mt-1 text-white"
+                      >
+                        {r.name.trim().at(0)}
+                      </h3>
+                    )}
                     <div className="flex flex-col md:mt-4 gap-1">
                       <h3 className="md:text-2xl text-lg font-bold">
                         {r.name}
