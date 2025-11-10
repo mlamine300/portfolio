@@ -2,18 +2,26 @@
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import ProjectCard from "./ProjectCard";
-import { projects } from "@/lib/data";
+import { Project } from "@/types";
+import { getAllProjects } from "@/actions";
 
 function Work() {
   const { theme } = useTheme();
-  // Sample projects data
+  const [projects, setProjects] = useState<Project[] | null>(null);
+  useEffect(() => {
+    const x = async () => {
+      const res = await getAllProjects();
+      if (res && res.length > 0) setProjects(res);
+    };
+    x();
+  }, []);
 
   return (
     <section className="container mx-auto flex flex-col md:flex-row gap-8  items-center mt-4 sm:mt-2 mb-10">
@@ -52,11 +60,12 @@ function Work() {
             },
           }}
         >
-          {projects.slice(0, 4).map((project, index) => (
-            <SwiperSlide key={index}>
-              <ProjectCard project={project} />
-            </SwiperSlide>
-          ))}
+          {projects &&
+            projects.slice(0, 4).map((project, index) => (
+              <SwiperSlide key={index}>
+                <ProjectCard project={project} />
+              </SwiperSlide>
+            ))}
         </Swiper>
       </div>
     </section>

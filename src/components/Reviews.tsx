@@ -1,14 +1,25 @@
 "use client";
-import { useTheme } from "next-themes";
 import Image from "next/image";
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Card, CardDescription, CardHeader } from "./ui/card";
-import { reviews } from "@/lib/data";
+
 import { getRandomDarkColor } from "@/lib/utils";
+import { getAllReviews } from "@/actions";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+import { Review } from "@/types";
 
 const Reviews = () => {
   const { theme } = useTheme();
+  const [reviews, setReviews] = useState<Review[] | []>([]);
+  useEffect(() => {
+    const x = async () => {
+      const rev = await getAllReviews();
+      if (rev && rev.length > 0) setReviews(rev);
+    };
+    x();
+  }, []);
 
   return (
     <section className="flex flex-col self-center sm:w-[700px] sm:max-w-[700px]  items-center gap-4 py-8">

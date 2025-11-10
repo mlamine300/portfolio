@@ -8,7 +8,7 @@ import { Project } from "@/types";
 
 const ProjectCard = ({ project }: { project: Project }) => {
   return (
-    <Card className="h-fit group overflow-hidden relative max-md:max-h-[400px]">
+    <Card className="h-fit group overflow-hidden relative max-md:max-h-[400px]  lg:h-[450px] xl:h-[550px]">
       <div className="absolute opacity-0 z-10 w-full h-20 top-[30%] left-1  flex justify-center items-center gap-2 group-hover:opacity-100 transition-opacity duration-500 ">
         <Link href={project.github}>
           {" "}

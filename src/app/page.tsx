@@ -6,6 +6,8 @@ import Services from "@/components/Services";
 import Work from "@/components/Work";
 
 export default function Home() {
+  // const { theme } = useTheme();
+  //const informations=await getPersonalInformation();
   return (
     <main className="w-full max-md:max-w-screen flex  mb-16 flex-col items-center justify-between p-10 md:p-24">
       <Hero />

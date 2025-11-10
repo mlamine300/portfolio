@@ -1,22 +1,39 @@
-"use client";
-import { useState } from "react";
+// "use client";
+// import { useState } from "react";
 import ProjectHeader from "./ProjectHeader";
-import { projects } from "@/lib/data";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
+import { Tabs, TabsContent } from "@/components/ui/tabs";
 import ProjectCard from "@/components/ProjectCard";
-const Page = () => {
+
+import { Project } from "@/types";
+import { getAllProjects } from "@/actions";
+import CategoriesHeader from "./CategoriesHeader";
+import Loading from "@/components/loading";
+
+type SearchParams = { [key: string]: string | string[] | undefined };
+const Page = async ({
+  // params,
+  searchParams,
+}: {
+  // params: Params;
+  searchParams: Promise<SearchParams>;
+}) => {
+  const projects = (await getAllProjects()) || [];
+  const category = (await searchParams).category as string;
   const FilteredCategories = [
     "all projects",
-    ...new Set(projects.map((project) => project.category)),
+    ...new Set(projects.map((project: Project) => project.category)),
   ];
-  const [category, setCategory] = useState(FilteredCategories.at(0));
+
   const filteredProjects =
-    category === "all projects"
-      ? projects.filter(() => true)
-      : projects.filter((p) => p.category === category);
+    !category || category === "" || category === "all projects"
+      ? projects
+      : projects.filter((p) => p.category.toLowerCase() === category);
+
   console.log(category);
-  console.log(filteredProjects.at(0)?.category);
+  // console.log(filteredProjects.at(0));
   console.log(filteredProjects);
+  // if (filteredProjects.length < 1) return "hola";
   return (
     <main className="flex min-h-screen flex-col items-center justify-start p-16">
       <ProjectHeader />
@@ -25,24 +42,19 @@ const Page = () => {
         defaultValue="all projects"
         className="w-full h-full flex flex-col items-center"
       >
-        <TabsList className="max-sm:border-none max-sm:bg-background min-w-60 font-medium  text-xs sm:text-lg flex flex-col sm:flex-row sm:gap-20 sm:w-fit rounded-lg py-4 px-4 sm:px-20">
-          {FilteredCategories.map((cat, index) => (
-            <TabsTrigger
-              className=" sm:p-4 capitalize  px-4"
-              value={cat}
-              key={index}
-              onClick={() => setCategory(cat)}
-            >
-              {cat}{" "}
-            </TabsTrigger>
-          ))}
-        </TabsList>
+        <CategoriesHeader categories={FilteredCategories} />
         <div className="w-full h-full mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
-            <TabsContent key={index} value={category || "all projects"}>
-              <ProjectCard key={index} project={project} />
-            </TabsContent>
-          ))}
+          {projects.length > 0 ? (
+            filteredProjects.map((project, index) => (
+              <TabsContent key={index} value={category || "all projects"}>
+                <ProjectCard key={index} project={project} />
+              </TabsContent>
+            ))
+          ) : (
+            <div className="w-full h-full flex items-center justify-center bg-red-500">
+              <Loading />
+            </div>
+          )}
         </div>
         {/* <div className="w-full h-full mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (

@@ -13,8 +13,18 @@ const processQueue = (error: any, token = null) => {
 
 const axiosInstance = axios.create({
   baseURL: process.env.API_ENDPOINT || "http://localhost:5000",
-  timeout: 100000,
+  timeout: 10000,
   withCredentials: true,
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+  },
+});
+
+export const axiosPublic = axios.create({
+  baseURL: process.env.API_ENDPOINT || "http://localhost:5000",
+  timeout: 10000,
+  withCredentials: false,
   headers: {
     "Content-Type": "application/json",
     Accept: "application/json",
