@@ -1,36 +1,181 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Portfolio
 
-## Getting Started
+A modern personal portfolio website built with Next.js and TypeScript.
 
-First, run the development server:
+Table of Contents
 
-```bash
-npm run dev
-# or
+Project Overview
+
+Features
+
+Built With
+
+Getting Started
+
+Prerequisites
+
+Installation
+
+Running Locally
+
+
+Project Structure
+
+Deployment
+
+Contributing
+
+License
+
+Contact
+
+
+Project Overview
+
+This project is a personal portfolio website created to showcase skills, projects, and experience in a clean, modern, and performant web application. It uses Next.js with TypeScript to build a fast, SEO-friendly site.
+
+Features
+
+Modern UI built with React and Next.js
+
+TypeScript for type safety
+
+Responsive design: works across desktop, tablet and mobile
+
+Optimised for performance and best practices
+
+Easy to extend with new sections or projects
+
+Ready for deployment on platforms like Vercel
+
+
+Built With
+
+Next.js
+
+React
+
+TypeScript
+
+CSS / Tailwind (or whichever styling you used — adjust accordingly)
+
+Other tooling (ESLint, PostCSS etc)
+
+
+Getting Started
+
+Prerequisites
+
+Ensure you have the following installed:
+
+Node.js (v14+ recommended)
+
+npm (or yarn/pnpm depending on preference)
+
+
+Installation
+
+1. Clone the repository
+
+git clone https://github.com/mlamine300/portfolio.git
+
+
+2. Change into the project directory
+
+cd portfolio
+
+
+3. Install dependencies
+
+npm install  
+# or  
+yarn install
+
+
+
+Running Locally
+
+To run the development server:
+
+npm run dev  
+# or  
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 in your browser.
+The app will auto-reload when you edit files—thanks to Next.js.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Here’s an overview of the main folders and files:
 
-## Learn More
+/portfolio
+├── public/           # Static files (images, favicons, etc)  
+├── src/              # Source code  
+│   ├── components/   # Reusable UI components  
+│   ├── pages/        # Next.js pages  
+│   ├── styles/       # Global & module CSS / styling  
+│   └── …             # Additional directories  
+├── .gitignore  
+├── package.json  
+├── tsconfig.json  
+├── next.config.ts    # Next.js configuration  
+└── README.md
 
-To learn more about Next.js, take a look at the following resources:
+Feel free to add or remove folders as the project evolves.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This site is optimised for deployment. For example, if you use Vercel:
 
-## Deploy on Vercel
+1. Push your code to GitHub.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. Link the GitHub repo in the Vercel dashboard.
+
+
+3. Vercel will auto-deploy the project on each push.
+
+
+4. The live URL will be provided by Vercel (or whichever host you choose).
+
+
+
+Contributing
+
+Contributions are welcome! If you’d like to help:
+
+1. Fork the repository
+
+
+2. Create a new branch (git checkout -b feature-YourFeature)
+
+
+3. Make your changes and commit (git commit -m 'Add some feature')
+
+
+4. Push to the branch (git push origin feature-YourFeature)
+
+
+5. Open a Pull Request and describe what you’ve changed
+
+
+
+Please ensure changes maintain code quality and pass any existing linting or styling rules.
+
+License
+
+Distributed under the MIT License. See LICENSE file for details.
+
+Contact
+
+For questions or feedback, feel free to reach out:
+
+GitHub: mlamine300
+
+Email: your email@domain.com (replace with your contact)
+
+
+
+---
+
+Let me know if you’d like me to add screenshots, badges, or a live demo link section.
