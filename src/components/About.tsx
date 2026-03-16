@@ -14,7 +14,7 @@ import {
 import { VscVscodeInsiders } from "react-icons/vsc";
 import { BiLogoFigma } from "react-icons/bi";
 import { RxNotionLogo } from "react-icons/rx";
-import { SiAdobexd } from "react-icons/si";
+import { TbBrandAdobeXd } from "react-icons/tb";
 import PersonalInfo from "./PersonalInfo";
 import Qualifications from "./Qualifications";
 import { Experience } from "./ExperienceCard";
@@ -93,7 +93,7 @@ const About = () => {
     <VscVscodeInsiders key={1} />,
     <BiLogoFigma key={2} />,
     <RxNotionLogo key={3} />,
-    <SiAdobexd key={4} />,
+    <TbBrandAdobeXd key={4} />,
   ];
   return (
     <section className="flex flex-col self-center sm:w-[700px] mt-26 sm:max-w-[700px]  items-center gap-4 py-8">
