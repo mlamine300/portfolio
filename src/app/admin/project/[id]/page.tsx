@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import AddEdditProject from "@/components/admin/AddEdditProject";
@@ -8,7 +9,7 @@ import Loading from "@/components/loading";
 
 
 // This is a client component, so Next.js type errors in .next/types can be ignored for params.
-const AddEditProject = ({ params }: { params: { id: string } }) => {
+const AddEditProject = ({ params }: { params: any }) => {
   const [fetching, setFetching] = useState(false);
   const [project, setProject] = useState<Project | null>(null);
   const id = params.id;
