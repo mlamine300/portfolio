@@ -3,18 +3,20 @@ import React, { ReactNode } from "react";
 type PersonalInfoProps = {
   infos: { icon: ReactNode; text: string; onClick: () => void }[];
   language: string[];
+  summary:string;
+  title:string;
 };
 
-const PersonalInfo = ({ infos, language }: PersonalInfoProps) => {
+const PersonalInfo = ({ infos, language,title,summary }: PersonalInfoProps) => {
   return (
     <section className="flex flex-col items-center gap-4 w-full h-full p-4">
       <h2 className="text-2xl font-bold text-text_primary text-center">
-        Unmatched Service Quality for Over 3 Years
+        {title||"Unmatched Service Quality for Over 3 Years"}
       </h2>
       <p className="text-muted-foreground text-center sm:text-start">
-        I am passionate about building modern, user-friendly web applications.
+       {summary||` I am passionate about building modern, user-friendly web applications.
         With over 3 years of experience, I specialize in designing efficient
-        solutions that combine creativity, functionality, and performance.
+        solutions that combine creativity, functionality, and performance.`}
       </p>
       <div className="flex flex-col gap-4 items-center max-sm:text-center sm:text-start sm:grid sm:grid-cols-2 sm:grid-rows-3 sm:gap-x-20 px-6  sm:grid-flow-col">
         {infos.map((item, index) => (

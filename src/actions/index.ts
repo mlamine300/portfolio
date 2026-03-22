@@ -24,3 +24,16 @@ export const getAllReviews: () => Promise<Review[] | null> = async () => {
     return null;
   }
 };
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const getPersonalInformation: () => Promise<any> = async () => {
+  try {
+    const res = await axiosPublic.get("/user");
+    //console.log(res.data.projects);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+
+    return null;
+  }
+};

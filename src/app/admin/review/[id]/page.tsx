@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import React, { useEffect, useState } from "react";
@@ -6,7 +7,7 @@ import { Review } from "@/types";
 import Loading from "@/components/loading";
 import AddEdditReview from "@/components/admin/AddEdditReview";
 
-const AddEditProject = ({ params }: { params: { id: string } }) => {
+const AddEditProject = ({ params }: { params: any}) => {
   const [fetching, setFetching] = useState(false);
   const [review, setReview] = useState<Review | null>(null);
   const id = params.id;

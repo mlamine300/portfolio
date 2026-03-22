@@ -20,7 +20,7 @@ const Template = ({ children }: { children: ReactNode }) => {
         transition={{
           duration: 0.5,
           ease: "easeInOut",
-          type: "linear",
+          //type: "linear",
           delay: 0.2,
         }}
       >

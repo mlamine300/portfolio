@@ -1,19 +1,20 @@
+import { formatDate } from "date-fns";
 import Image from "next/image";
 import React from "react";
 export type Experience = {
   //   icon: React.ReactNode;
   //   title: string;
-  description: string;
-  dateFrom: string;
-  dateTo: string;
+  title: string;
+  start: Date;
+  end: Date;
   company: string;
 };
 const ExperienceCard = ({
   // icon,
   // title,
-  description,
-  dateFrom,
-  dateTo,
+  title,
+  start,
+  end,
   company,
 }: Experience) => {
   return (
@@ -32,9 +33,9 @@ const ExperienceCard = ({
         />
         <div className="flex flex-col">
           <h3 className="text-sm sm:text-lg font-bold text-text_primary ">{company}</h3>
-          <p className="text-sm sm:text-lg text-muted-foreground mb-2">{description}</p>
-          <p className="text-xs sm:text-sm text-text_primary">
-            {dateFrom} - {dateTo}
+          <p className="text-sm sm:text-lg text-muted-foreground mb-2">{title}</p>
+          <p className="text-xs sm:text-sm text-text_primary font-bold">
+            {formatDate(start,"MMM yyyy")} - {formatDate(end,"MMM yyyy")}
           </p>
         </div>
       </div>

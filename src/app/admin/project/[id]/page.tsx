@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import AddEdditProject from "@/components/admin/AddEdditProject";
@@ -6,7 +7,8 @@ import axiosInstance from "@/lib/axiosInstance";
 import { Project } from "@/types";
 import Loading from "@/components/loading";
 
-const AddEditProject = ({ params }: { params: { id: string } }) => {
+
+const AddEditProject = ({ params }: { params: any }) => {
   const [fetching, setFetching] = useState(false);
   const [project, setProject] = useState<Project | null>(null);
   const id = params.id;
@@ -20,7 +22,7 @@ const AddEditProject = ({ params }: { params: { id: string } }) => {
       setFetching(false);
     };
     if (id !== "new") fetchProjectById();
-  }, []);
+  }, [id]);
   return (
     <main className="flex min-h-screen flex-col items-center justify-start p-16 relative">
       {fetching ? <Loading /> : <AddEdditProject project={project} />}

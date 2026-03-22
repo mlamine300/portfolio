@@ -18,6 +18,9 @@ import { Button } from "../ui/button";
 import { deepEqual } from "@/lib/utils";
 import Link from "next/link";
 import { BsChevronDoubleLeft, BsChevronDoubleRight } from "react-icons/bs";
+import { HiXMark } from "react-icons/hi2";
+import ResumeUploader from "./ResumeUploader";
+
 
 export const ExperienceSchema = z.object({
   company: z.string().min(4, "Company name is required"),
@@ -27,10 +30,10 @@ export const ExperienceSchema = z.object({
 });
 
 export const EducationSchema = z.object({
-  university: z.string().min(4, "University is required"),
+  company: z.string().min(4, "University is required"),
   start: z.coerce.date(),
   end: z.coerce.date(),
-  degree: z.string().min(4, "Degree is required"),
+  title: z.string().min(4, "Degree is required"),
 });
 
 export const UserSchema = z.object({
@@ -43,12 +46,15 @@ export const UserSchema = z.object({
   summary: z.string().min(10, "Summary too short"),
   experiences: z.array(ExperienceSchema),
   educations: z.array(EducationSchema),
+  skills:z.array(z.string())
 });
 export type User = z.infer<typeof UserSchema>;
 export type Experience = z.infer<typeof ExperienceSchema>;
 const UserInformationForm = () => {
   const [initialData, setInitialData] = useState<User | null>(null);
   const [isFormDisabled, setIsFormDisabled] = useState(false);
+  const [skillsToAdd, setSkillsToAdd] = useState("");
+
   const form = useForm<User>({
     resolver: zodResolver(UserSchema),
 
@@ -65,8 +71,9 @@ const UserInformationForm = () => {
         { company: "", start: new Date(), end: new Date(), title: "" },
       ],
       educations: [
-        { university: "", start: new Date(), end: new Date(), degree: "" },
+        { company: "", start: new Date(), end: new Date(), title: "" },
       ],
+      skills:[]
     },
   });
   const checkDisabled = (userInfo: User) => {
@@ -102,13 +109,15 @@ const UserInformationForm = () => {
         const res = await axiosInstance.get("/user");
         console.log(res.data);
         const { data } = UserSchema.safeParse(res.data);
-        setInitialData(data || null);
-        form.reset(data);
+        console.log(data)
+        setInitialData(res.data || null);
+        form.reset(res.data);
       };
       getUserData();
     }, [form]);
   } catch (error) {
-    console.error(error);
+    console.log(error);
+    alert("Error")
   }
   return (
     <Form {...form}>
@@ -144,7 +153,31 @@ const UserInformationForm = () => {
           <FormItem name="phone" control={form.control} />
           <FormItem name="email" control={form.control} />
           <FormItem name="address" control={form.control} />
+        
         </div>
+            <div className="flex flex-col">
+              <h3 className="text-lg font-semibold italic">Skills</h3>
+             <div className="flex max-w-lg gap-8">
+               <Input value={skillsToAdd} onChange={(e)=>setSkillsToAdd(e.target.value)} placeholder="Add a Skill"  />
+              <Button type="button" onClick={()=>{
+                form.setValue("skills",[...form.getValues("skills"),skillsToAdd]);
+                setSkillsToAdd("")
+                
+              }}>Add</Button>
+             </div>
+              {form.watch("skills").map((s:string,i:number)=>
+                <div key={i} className="flex gap-8 lg:max-w-lg items-center">
+                  <h3 className="italic underline text-sm font-semibold">{s} </h3>
+                  <HiXMark className="text-red-500 font-bold h-8 w-8" onClick={()=>form.setValue("skills",form.getValues("skills").filter(x=>x!==s))} />
+                </div>
+
+              )}
+            </div>
+              <div className="flex flex-col">
+                      <p>Change Resume</p>
+                      <ResumeUploader  />
+                    </div>
+          
         <ExperienceCarousel
           setExperiences={(exp: Experience[]) => {
             form.setValue("experiences", exp);
@@ -159,7 +192,7 @@ const UserInformationForm = () => {
               <Card className="w-full h-fit  " key={index}>
                 <CardTitle className="flex">
                   <h3 className="w-full text-2xl font-black italic text-primary text-center ">
-                    {edu.degree}
+                    {edu.title}
                   </h3>
                 </CardTitle>
                 <CardContent className="flex flex-col gap-4">
@@ -173,7 +206,7 @@ const UserInformationForm = () => {
                     <Input
                       id={`university${index}`}
                       name="university :"
-                      value={edu.university}
+                      value={edu.company}
                       onChange={(e) =>
                         form.setValue(
                           "educations",
@@ -181,7 +214,7 @@ const UserInformationForm = () => {
                             .watch("educations")
                             .map((x, i) =>
                               i === index
-                                ? { ...x, university: e.target.value }
+                                ? { ...x, company: e.target.value }
                                 : x
                             )
                         )
@@ -194,12 +227,12 @@ const UserInformationForm = () => {
                       className="font-semibold text-lg"
                       htmlFor={`title${index}`}
                     >
-                      Degree
+                      title
                     </label>
                     <Input
-                      id={`degree${index}`}
-                      name="degree :"
-                      value={edu.degree}
+                      id={`title${index}`}
+                      name="title :"
+                      value={edu.title}
                       className="font-semibold w-full shrink"
                       onChange={(e) =>
                         form.setValue(
@@ -207,7 +240,7 @@ const UserInformationForm = () => {
                           form
                             .watch("educations")
                             .map((x, i) =>
-                              i === index ? { ...x, degree: e.target.value } : x
+                              i === index ? { ...x, title: e.target.value } : x
                             )
                         )
                       }

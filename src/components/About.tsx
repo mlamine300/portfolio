@@ -1,7 +1,7 @@
 "use client";
 import { useTheme } from "next-themes";
 import Image from "next/image";
-import React, { ReactNode } from "react";
+import React, { ReactNode} from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import {
   HiUser,
@@ -12,78 +12,91 @@ import {
   HiHome,
 } from "react-icons/hi2";
 import { VscVscodeInsiders } from "react-icons/vsc";
-import { BiLogoFigma } from "react-icons/bi";
+import { BiLogoAdobe, BiLogoFigma } from "react-icons/bi";
 import { RxNotionLogo } from "react-icons/rx";
-import { SiAdobexd } from "react-icons/si";
 import PersonalInfo from "./PersonalInfo";
 import Qualifications from "./Qualifications";
 import { Experience } from "./ExperienceCard";
 import Skills from "./Skills";
+type AboutProps={
+  experiences:Experience[];
+  educations:Experience[];
+  summary:string;
+  phone:string;
+  email:string;
+  dateOfBirth : string;
+  education : string;
+  address : string;
+  name :string;
+  skills:string[];
+}
+const About = ({experiences,educations,summary,phone,email,dateOfBirth,education,address,name,skills
 
-const About = () => {
+}:AboutProps) => {
   const { theme } = useTheme();
 
   const infos: { icon: ReactNode; text: string; onClick: () => void }[] = [
-    { icon: <HiUser />, text: "Laoufi Mohamed Lamine", onClick: () => {} },
+    { icon: <HiUser />, text: name||"Laoufi Mohamed Lamine", onClick: () => {} },
     {
       icon: <HiEnvelope />,
-      text: "laoufi.lamine.dev@gmail.com",
+      text: email||"laoufi.lamine.dev@gmail.com",
       onClick: () => {},
     },
     {
       icon: <HiAcademicCap />,
-      text: "Master's Degree in Computer Science",
+      text: education||"Master's Degree in Computer Science",
       onClick: () => {},
     },
 
     {
       icon: <HiPhone />,
-      text: "+213 676 21 77 01",
+      text: phone||"+213 676 21 77 01",
       onClick: () => {},
     },
     {
       icon: <HiCalendar />,
-      text: "Born on 01/01/1998",
+      text: dateOfBirth||"Born on 01/01/1998",
       onClick: () => {},
     },
     {
       icon: <HiHome />,
-      text: "Cite bellevue Ain benian, Algeirs Algeria",
+      text: address|| "Cite bellevue Ain benian, Algeirs Algeria",
       onClick: () => {},
     },
   ];
   const language = ["Arabic", "French", "English"];
 
-  const Experiences: Experience[] = [
+  const Experiences: Experience[] =experiences||
+   [
     {
-      description: "Junior Software Engineer",
-      dateFrom: "2023",
-      dateTo: "2025",
+      title: "Junior Software Engineer",
+      start: "2023",
+      end: "2025",
       company: "UPS Algeria (United Parcel Service)",
     },
     {
-      description: "Customer Solution Engineer",
-      dateFrom: "2022",
-      dateTo: "2023",
+      title: "Customer Solution Engineer",
+      start: "2022",
+      end: "2023",
       company: "UPS Algeria (United Parcel Service)",
     },
   ];
-  const Educations: Experience[] = [
+  const Educations: Experience[] =educations|| [
     {
-      description: "Master's Degree in Computer Science",
-      dateFrom: "2021",
-      dateTo: "2019",
+      title: "Master's Degree in Computer Science",
+      start: "2021",
+      end: "2019",
       company: "Ecole Superieure Nationale de Technologie (ESNT)",
     },
     {
-      description: "Bachelor's Degree in Computer Science",
-      dateFrom: "2019",
-      dateTo: "2016",
+      title: "Bachelor's Degree in Computer Science",
+      start: "2019",
+      end: "2016",
       company: "Ecole Superieure Nationale de Technologie (ESNT)",
     },
   ];
 
-  const skills = [
+  const mySkills =skills|| [
     "HTML, CSS",
     "JavaScript, TypeScript",
     "React, Next.js",
@@ -93,17 +106,24 @@ const About = () => {
     <VscVscodeInsiders key={1} />,
     <BiLogoFigma key={2} />,
     <RxNotionLogo key={3} />,
-    <SiAdobexd key={4} />,
+    <BiLogoAdobe key={4} />,
   ];
+
+  // const [updatedExperiences, setUpdatedExperiences] = useState<Experience[]>(Experiences);
+  // const [updatedEducations, setUpdatedEducations] = useState<Experience[]>(Educations);
+
+  // useEffect(()=>{
+
+  // },[])
   return (
-    <section className="flex flex-col self-center sm:w-[700px] mt-26 sm:max-w-[700px]  items-center gap-4 py-8">
+    <section className="flex flex-col self-center sm:w-175 mt-26 sm:max-w-175  items-center gap-4 py-8">
       <div className="flex sm:gap-8 gap-2 justify-center items-center ">
         <Image
           alt="ring"
           src={theme === "dark" ? "/ring-dark.svg" : "/ring.svg"}
           width={40}
           height={40}
-          className='w-[20px] h-[20px] sm:w-[40px] sm:h-[40px]'
+          className='w-5 h-5 sm:w-10 sm:h-10'
         />
         <h1 className="text-2xl sm:text-5xl font-bold text-text">About</h1>
       </div>
@@ -120,13 +140,13 @@ const About = () => {
           </TabsTrigger>
         </TabsList>
         <TabsContent value="info" className="h-full ">
-          <PersonalInfo infos={infos} language={language} />
+          <PersonalInfo summary={summary} title="" infos={infos} language={language} />
         </TabsContent>
         <TabsContent value="qualifications" className="h-full ">
           <Qualifications experiences={Experiences} education={Educations} />
         </TabsContent>
         <TabsContent value="skills" className="h-full">
-          <Skills skills={skills} tools={tools} />
+          <Skills skills={mySkills} tools={tools} />
         </TabsContent>
       </Tabs>
     </section>

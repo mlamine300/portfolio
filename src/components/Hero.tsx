@@ -32,7 +32,7 @@ const Hero = () => {
           </div>
           <div className="flex flex-col sm:flex-row gap-4 mt-4 ">
             <Link
-              href={"http://localhost:3000/contact"}
+              href={"/contact"}
               className="sm:gap-4 rounded-xl  max-sm:mx-auto w-36 font-bold flex items-center bg-primary px-4 text-background text-xl hover:bg-primary/60"
             >
               <span className="text-[10px] sm:flex sm:text-sm">Contact me</span>{" "}

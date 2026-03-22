@@ -12,7 +12,7 @@ const processQueue = (error: any, token = null) => {
 };
 
 const axiosInstance = axios.create({
-  baseURL: process.env.API_ENDPOINT || "http://localhost:5000",
+  baseURL: process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000",
   timeout: 10000,
   withCredentials: true,
   headers: {
@@ -22,7 +22,7 @@ const axiosInstance = axios.create({
 });
 
 export const axiosPublic = axios.create({
-  baseURL: process.env.API_ENDPOINT || "http://localhost:5000",
+  baseURL: process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000",
   timeout: 10000,
   withCredentials: false,
   headers: {

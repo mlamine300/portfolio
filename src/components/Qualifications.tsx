@@ -20,9 +20,9 @@ const Qualifications = ({ experiences, education }: QualificationProps) => {
           {experiences.map((item, index) => (
             <ExperienceCard
               key={index}
-              description={item.description}
-              dateFrom={item.dateFrom}
-              dateTo={item.dateTo}
+              title={item.title}
+              start={item.start}
+              end={item.end}
               company={item.company}
             />
           ))}
@@ -36,9 +36,9 @@ const Qualifications = ({ experiences, education }: QualificationProps) => {
           {education.map((item, index) => (
             <ExperienceCard
               key={index}
-              description={item.description}
-              dateFrom={item.dateFrom}
-              dateTo={item.dateTo}
+              title={item.title}
+              start={item.start}
+              end={item.end}
               company={item.company}
             />
           ))}

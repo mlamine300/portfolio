@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+import axiosInstance from "./axiosInstance";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -121,4 +122,21 @@ export const getRandomDarkColor = (): string => {
   // Convert to hex
   const toHex = (n: number) => n.toString(16).padStart(2, "0");
   return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+};
+
+export const uploadResume = async (file: File) => {
+   console.log(file)
+  const api=process.env.NEXT_PUBLIC_API_URL||"http://localhost:5000"
+  const formData = new FormData();
+  formData.append("resume", file);
+  console.log(formData)
+await axiosInstance.post(`${api}/resume`, formData, {
+  headers: {
+    "Content-Type": "multipart/form-data",
+  },
+});
+  // await fetch(`${api}/resume`, {
+  //   method: "POST",
+  //   body: formData,
+  // });
 };
