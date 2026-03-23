@@ -7,7 +7,7 @@ import { useScrollProgress } from "@/hooks/useScrollProgress";
 import MobileNav from "./MobileNav";
 import ToggleDarkMode from "./ToggleDarkMode";
 // import MobileNav from "./MobileNav";
-// import image from "/logo.png"; // Adjust the path as necessary
+ import image from "../../public/Logo.png"; // Adjust the path as necessary
 const Header = () => {
   const navlinks: navlink[] = [
     {
@@ -32,9 +32,9 @@ const Header = () => {
       } bg-background fixed top-0 right-0 left-0 bg-gray-1  px-4`}
     >
       <div
-        className={` max-w-[1000px] mx-auto  flex items-center justify-between h-14`}
+        className={` max-w-250 mx-auto  flex items-center justify-between h-14`}
       >
-        <Image alt="logo" src={"/logo.png"} width={50} height={50} />
+        <Image alt="logo" src={image} width={50} height={50} />
         <div className="flex items-center gap-8">
           <div className="hidden sm:flex items-center gap-4">
             <Nav
