@@ -28,10 +28,11 @@ const Page = async ({
   const filteredProjects =
     !category || category === "" || category === "all projects"
       ? projects
-      : projects.filter((p) => p.category.toLowerCase() === category);
+      : projects.filter((p) => p.category.toLowerCase().trim() === category.toLowerCase().trim());
 
   console.log(category);
   // console.log(filteredProjects.at(0));
+  console.log(projects)
   console.log(filteredProjects);
   // if (filteredProjects.length < 1) return "hola";
   return (

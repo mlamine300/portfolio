@@ -31,7 +31,7 @@ const FormItem = ({
   labelClassName?: string;
   inputClassName?: string;
   className?: string;
-  type?: "text" | "area" | "date";
+  type?: "text" | "area" | "date"|"number";
 }) => {
   return (
     <FormField
@@ -80,7 +80,7 @@ const FormItem = ({
                   onBlur={field.onBlur}
                   disabled={field.disabled}
                   ref={field.ref}
-                  type={"text"}
+                  type={type}
                   className={cn(
                     "text-sm md:text-lg rounded-xl bg-accent w-full px-4 py-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-primary ",
                     inputClassName

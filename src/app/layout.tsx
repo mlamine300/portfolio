@@ -5,15 +5,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ThemeProvider } from "next-themes";
 
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
 const outfit = Outfit({
   variable: "--font-nunito",
   subsets: ["latin"],
@@ -24,13 +15,7 @@ const inter = Outfit({
   weight: ["400", "500", "600", "700"],
   display: "swap",
 });
-// const montserrat = Roboto({
-//   variable: "--font-montserrat",
-//   subsets: ["latin"],
-//   weight: ["400", "500", "600", "700"],
 
-//   display: "swap",
-// });
 
 export const metadata: Metadata = {
   title: "LAOUFI Mohamed Lamine",
