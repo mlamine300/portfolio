@@ -37,6 +37,10 @@ export const EducationSchema = z.object({
 });
 
 export const UserSchema = z.object({
+  heroDescription:z.string().min(1,"hero description is missing").max(1000,"hero description is too long"),
+  finishedProject:z.string() ,
+  clientNumber:z.string(),
+  yearsOfExperience:z.string(),
   address: z.string().min(1, "Address is required"),
   dateOfBirth: z.coerce.date(),
   education: z.string().min(1, "education is required"),
@@ -60,6 +64,10 @@ const UserInformationForm = () => {
 
     disabled: isFormDisabled,
     defaultValues: {
+      heroDescription:"",
+      finishedProject:"16",
+      clientNumber:"14",
+       yearsOfExperience:"5",
       address: "",
       dateOfBirth: new Date(),
       education: "",
@@ -132,6 +140,15 @@ const UserInformationForm = () => {
       >
         <div className="flex justify-center">
           <h3 className="text-xl font-semibold">Update User Information</h3>
+        </div>
+        <div className="flex flex-col items-start justify-start">
+          <p className="font-semibold mb-4">Hero information </p>
+           <FormItem name="heroDescription" type="area" control={form.control} />
+          <div className="flex justify-between gap-4 items-center w-full mt-2">
+            <FormItem name="finishedProject" type="number" control={form.control} />
+            <FormItem name="clientNumber" type="number" control={form.control} />
+            <FormItem name="yearsOfExperience" type="number" control={form.control} />
+          </div>
         </div>
         <div className="flex flex-col md:flex-row gap-4">
           <FormItem name="name" control={form.control} />

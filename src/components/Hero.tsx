@@ -13,7 +13,12 @@ import Badge from "./Badge";
 import DownloadCv from "./DownloadCv";
 import Link from "next/link";
 
-const Hero = () => {
+const Hero = ({heroDescription,finishedProject,clientNumber,yearsOfExperience}:{heroDescription:string;finishedProject:string;clientNumber:string;yearsOfExperience:string;}) => {
+ 
+ const  HeroDescription=heroDescription||"I am a Logistician and transportation engineer with a passion for creating beautiful and functional App and websites."
+ const FinishedProject=finishedProject||16;
+ const ClientNumber=clientNumber||14;
+ const YearsOfExperience=yearsOfExperience||5;
   return (
     <section className="mt-20 md:mt-5 w-full flex flex-col items-center ">
       <div className="flex gap-4 justify-center ">
@@ -26,8 +31,7 @@ const Hero = () => {
               {" Hello, My name is "} <span>Lamine</span>
             </h1>
             <p className="text-sm mt-2 text-muted-foreground">
-              I am a Logistician and transportation engineer with a passion for
-              creating beautiful and functional App and websites.
+              {HeroDescription}
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 mt-4 ">
@@ -52,7 +56,7 @@ const Hero = () => {
             containerStyles="bg-background/90 absolute gap-4 w-60 px-3 py-2 -top-8 -left-12  z-2  shadow-md shadow-stone-700"
             keyStyle="text-forground font-semibold text-md capitalize"
             valueStyle="text-primary font-bold text-4xl"
-            value={3}
+            value={Number(YearsOfExperience)}
             duration={1000}
             step={0.3}
             icon={<HiOutlineBriefcase className="text-primary text-3xl " />}
@@ -62,7 +66,7 @@ const Hero = () => {
             containerStyles="bg-background/90 absolute gap-4 w-60 px-3 py-2 top-50 -left-30  z-2  shadow-md shadow-stone-700"
             keyStyle="text-forground font-semibold text-md capitalize"
             valueStyle="text-primary font-bold text-4xl"
-            value={16}
+            value={Number(FinishedProject)}
             duration={2000}
             step={2}
             icon={
@@ -74,7 +78,7 @@ const Hero = () => {
             containerStyles="bg-background/90 absolute gap-4 w-60 px-3 py-2 top-30 left-50  z-2  shadow-md shadow-stone-700"
             keyStyle="text-forground font-semibold text-md capitalize"
             valueStyle="text-primary font-bold text-4xl"
-            value={4}
+            value={Number(ClientNumber)}
             duration={2000}
             step={0.2}
             icon={<HiUserGroup className="text-primary text-3xl " />}
