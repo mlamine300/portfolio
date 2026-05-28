@@ -44,7 +44,7 @@ const About = ({experiences,educations,summary,phone,email,dateOfBirth,education
     },
     {
       icon: <HiAcademicCap />,
-      text: education||"Master's Degree in Computer Science",
+      text: education||"Master's Degree in Logistics",
       onClick: () => {},
     },
 
@@ -69,7 +69,7 @@ const About = ({experiences,educations,summary,phone,email,dateOfBirth,education
   const Experiences: Experience[] =experiences||
    [
     {
-      title: "Junior Software Engineer",
+      title: "Logistics Engineer",
       start: "2023",
       end: "2025",
       company: "UPS Algeria (United Parcel Service)",
@@ -83,13 +83,13 @@ const About = ({experiences,educations,summary,phone,email,dateOfBirth,education
   ];
   const Educations: Experience[] =educations|| [
     {
-      title: "Master's Degree in Computer Science",
+      title: "Master's Degree in Logistics",
       start: "2021",
       end: "2019",
       company: "Ecole Superieure Nationale de Technologie (ESNT)",
     },
     {
-      title: "Bachelor's Degree in Computer Science",
+      title: "Bachelor's Degree in Logistics",
       start: "2019",
       end: "2016",
       company: "Ecole Superieure Nationale de Technologie (ESNT)",
